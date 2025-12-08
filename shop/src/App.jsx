@@ -41,30 +41,20 @@ function App() {
     <>
       <Header/>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6">
-      {data.map(item => (
-        <div key={item.id} className="border p-4 rounded shadow">
-          <img
-            src={item.image || "https://via.placeholder.com/300x400?text=Product"}
-            alt={item.title}
-            className="w-full h-48 object-cover mb-2"
-          />
-          <h2 className="font-bold">{item.title}</h2>
-          <p>${item.price}</p>
-        </div>
-      ))}
-    </div>
-
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/women" element={<Women />} />
-        <Route path="/men" element={<Men />} />
-        <Route path="/browse" element={<Browse />} />
+        <Route path="/women" element={<Women data={data}/>} />
+        <Route path="/men" element={<Men data={data}/>} />
+        <Route path="/browse" element={<Browse data={data}/>} />
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
-        <Route path='/singleproduct' element={<SingleProduct />} />
+        
+        <Route
+          path="/singleproduct/:id"
+          element={<SingleProduct data={data} />}
+        />
       </Routes>
 
       <Footer/>
