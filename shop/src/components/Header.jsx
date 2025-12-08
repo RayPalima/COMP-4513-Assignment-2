@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "./Login";
 import About from "../views/About";
 import Login from "../views/Login";
 import Popout from "./Popout";
 
 
 const Header = () => {
+    const { user, logout } = useAuth();
     const [showAbout, setShowAbout] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
 
@@ -21,7 +23,27 @@ const Header = () => {
             <Popout open={showAbout} onClose={() => setShowAbout(false)}>
             <About />
             </Popout>
-            <button className="font-bold rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={() => setShowLogin(true)}>Login</button>
+            {user ? (
+            <>
+              <span className="font-bold rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                Logged In
+              </span>
+
+              {user.isAdmin && (
+                <Link to="/dashboard" className="font-bold rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                  Dashboard
+                </Link>
+              )}
+
+              <button onClick={logout} className="font-bold rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                Logout
+              </button>
+            </>
+          ) : (
+            <button onClick={() => setShowLogin(true)} className="font-bold rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+              Login
+            </button>
+          )}
             <Popout open={showLogin} onClose={() => setShowLogin(false)}>
             <Login onClose={() => setShowLogin(false)} />
             </Popout>
