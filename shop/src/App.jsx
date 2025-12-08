@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect, createContext } from 'react'
 import {Routes, Route} from 'react-router-dom'
 import './App.css'
 
@@ -19,26 +17,30 @@ import SingleProduct from './views/SingleProduct'
 import Women from './views/Women'
 import About from './views/About'
 
-function App() {
+// Cart Context
+export const CartContext = createContext();
 
+const App = (props) => {
   const [data, setData] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+  // The following utilizes immediate invocation.
+    (async () => {
       try {
-        const response = await fetch('https://gist.githubusercontent.com/rconnolly/d37a491b50203d66d043c26f33dbd798/raw/37b5b68c527ddbe824eaed12073d266d5455432a/clothing-compact.json');
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
+        const resp = await fetch('https://gist.githubusercontent.com/rconnolly/d37a491b50203d66d043c26f33dbd798/raw/37b5b68c527ddbe824eaed12073d266d5455432a/clothing-compact.json');
+        const products = await resp.json();
+        setData(products);
+        } catch (error) {
         console.error('Error fetching data:', error);
-      }
-    };
+        }
+      })();
 
-      fetchData();
     }, []);
 
   return (
     <>
+      <CartContext.Provider value={{cart,setCart}}>
       <Header/>
 
       <Routes>
@@ -56,8 +58,10 @@ function App() {
           element={<SingleProduct data={data} />}
         />
       </Routes>
-
+      
       <Footer/>
+      
+      </CartContext.Provider>
     </>
   )
 }
