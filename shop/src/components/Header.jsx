@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import About from "../views/About";
+import Login from "../views/Login";
 import Popout from "./Popout";
 
 
 const Header = () => {
     const [showAbout, setShowAbout] = useState(false);
+    const [showLogin, setShowLogin] = useState(false);
 
 
     return( 
@@ -19,7 +21,10 @@ const Header = () => {
             <Popout open={showAbout} onClose={() => setShowAbout(false)}>
             <About />
             </Popout>
-            <Link to="/login" class="font-bold rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900">Admin Login</Link>
+            <button className="font-bold rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={() => setShowLogin(true)}>Login</button>
+            <Popout open={showLogin} onClose={() => setShowLogin(false)}>
+            <Login onClose={() => setShowLogin(false)} />
+            </Popout>
             <Link to="/cart" class="font-bold rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900">Cart</Link>
         </nav>
     )
