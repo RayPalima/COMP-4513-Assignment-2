@@ -13,8 +13,7 @@ const Header = () => {
   const [showLogin, setShowLogin] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between px-6 py-3 border-b bg-white shadow-md">
-      {/* Logo - Left */}
+    <nav style={{ backgroundColor: "#449DD1" }} className="flex items-center justify-between px-6 py-3 border-b bg-white shadow-md">
       <Link to="/" className="flex-shrink-0">
         <img
           src="https://placehold.co/120x40/png"
@@ -23,44 +22,19 @@ const Header = () => {
         />
       </Link>
 
-      {/* Center Navigation */}
       <div className="flex space-x-6 justify-center flex-1">
-        <Link
-          to="/"
-          className="font-semibold text-gray-700 hover:text-gray-900"
-        >
-          Home
-        </Link>
-        <Link
-          to="/women"
-          className="font-semibold text-gray-700 hover:text-gray-900"
-        >
-          Women
-        </Link>
-        <Link
-          to="/men"
-          className="font-semibold text-gray-700 hover:text-gray-900"
-        >
-          Men
-        </Link>
-        <Link
-          to="/browse"
-          className="font-semibold text-gray-700 hover:text-gray-900"
-        >
-          Browse
-        </Link>
-        <button
-          onClick={() => setShowAbout(true)}
-          className="font-semibold text-gray-700 hover:text-gray-900"
-        >
-          About
-        </button>
+        <Link to="/" className="font-semibold text-gray-700 hover:text-gray-900">Home</Link>
+        <Link to="/women" className="font-semibold text-gray-700 hover:text-gray-900"> Women</Link>
+        <Link to="/men" className="font-semibold text-gray-700 hover:text-gray-900">Men</Link>
+        <Link to="/browse" className="font-semibold text-gray-700 hover:text-gray-900">Browse</Link>
+        
+        <button onClick={() => setShowAbout(true)} className="font-semibold text-gray-700 hover:text-gray-900">About</button>
+        
         <Popout open={showAbout} onClose={() => setShowAbout(false)}>
           <About />
         </Popout>
       </div>
 
-      {/* Right Actions */}
       <div className="flex items-center space-x-4">
         {user ? (
           <>
@@ -91,14 +65,8 @@ const Header = () => {
           <Login onClose={() => setShowLogin(false)} />
         </Popout>
 
-        <Link
-          to="/cart"
-          className="font-semibold text-gray-700 hover:text-gray-900 relative"
-        >
-          Cart
-          <span className="absolute -top-2 -right-3 bg-blue-500 text-white px-2 py-0.5 rounded-full text-xs">
-            {items.length}
-          </span>
+        <Link to="/cart" className="font-semibold text-gray-700 hover:text-gray-900 relative">Cart
+          <span className="absolute -top-2 -right-3 bg-blue-500 text-white px-2 py-0.5 rounded-full text-xs"> {items.length} </span>
         </Link>
       </div>
     </nav>

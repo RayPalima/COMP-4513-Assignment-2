@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const CartCon = createContext();
 const STORAGE_KEY = "comp4513_cart";

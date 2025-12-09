@@ -1,5 +1,3 @@
-import React from "react";
-
 const Popout = ({ open, onClose, children }) => {
   if (!open) return null;
 

@@ -5,6 +5,5 @@ export async function fetchProd() {
   const res = await fetch(DATA_URL);
   if (!res.ok) throw new Error("Failed to fetch products");
   const data = await res.json();
-  // optionally compute derived fields here
   return data;
 }

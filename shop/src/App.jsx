@@ -13,7 +13,7 @@ import Browse from './views/Browse'
 import Cart from './views/Cart'
 import Dashboard from './views/Dashboard'
 import Login from './views/Login'
-import Product from './views/SingleProduct'
+import SingleProduct from './views/SingleProduct'
 import Women from './views/Women'
 import About from './views/About'
 
@@ -37,6 +37,8 @@ const App = (props) => {
 
   return (
     <>
+    <body>
+      <div>
       <Header/>
 
       <Routes>
@@ -45,14 +47,19 @@ const App = (props) => {
         <Route path="/men" element={<Men products={products}/>} />
         <Route path="/browse" element={<Browse products={products}/>} />
         <Route path="/about" element={<About />} />
-        <Route path="/cart" element={<Cart products={products}/>} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         
-        <Route path="/singleproduct/:id" element={<Product products={products} />} />
+        <Route
+          path="/singleproduct/:id"
+          element={<SingleProduct products={products} />}
+        />
       </Routes>
       
       <Footer/>
+      </div>
+      </body>
     </>
   )
 }
