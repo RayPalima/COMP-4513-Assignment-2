@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import CategoryList from "../components/CategoryList";
 
-const Men = ({ data }) => {
+const Men = ({ products }) => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    if (!data || data.length === 0) return;
+    if (!products || products.length === 0) return;
 
     const categoryArray = [];
 
-    for (let i = 0; i < data.length; i++) {
-      const item = data[i];
+    for (let i = 0; i < products.length; i++) {
+      const item = products[i];
 
       if (item.gender === "mens") {
         const category = item.category;
@@ -22,7 +22,7 @@ const Men = ({ data }) => {
     }
 
     setCategories(categoryArray);
-  }, [data]);
+  }, [products]);
 
   return (
     <div>
