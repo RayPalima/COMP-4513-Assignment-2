@@ -126,12 +126,6 @@ const Login = ({ onClose}) => {
         </div>
 
       </form>
-
-      <p className="text-gray-600 text-sm mt-4">
-        Demo accounts: <br />
-        <span className="font-semibold">admin / adminpass</span> (admin privileges) <br />
-        <span className="font-semibold">guest / guestpass</span>
-      </p>
     </div>
   );
 }

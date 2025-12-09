@@ -17,12 +17,9 @@ import SingleProduct from './views/SingleProduct'
 import Women from './views/Women'
 import About from './views/About'
 
-// Cart Context
-export const CartContext = createContext();
 
 const App = (props) => {
   const [data, setData] = useState([]);
-  const [cart, setCart] = useState([]);
 
   useEffect(() => {
   // The following utilizes immediate invocation.
@@ -40,7 +37,6 @@ const App = (props) => {
 
   return (
     <>
-      <CartContext.Provider value={{cart,setCart}}>
       <Header/>
 
       <Routes>
@@ -60,8 +56,6 @@ const App = (props) => {
       </Routes>
       
       <Footer/>
-      
-      </CartContext.Provider>
     </>
   )
 }
