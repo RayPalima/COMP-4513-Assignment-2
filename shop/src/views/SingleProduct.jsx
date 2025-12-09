@@ -48,15 +48,12 @@ const Product = () =>{
         {/* IMAGE SECTION */}
         <div className="md:w-1/3">
           <div className="bg-white border rounded-xl shadow-md p-4 flex items-center justify-center h-96 overflow-hidden">
-            {product.image ? (
-              <img
-                src={product.image}
-                alt={product.title}
-                className="max-h-full w-auto object-contain"
-              />
-            ) : (
-              <div className="text-gray-400 text-sm">No Image</div>
-            )}
+            <img
+              src={product.image || "https://placehold.co/600x400/png"}
+              alt={product.title || product.name || "Placeholder"}
+              className="max-h-full w-auto object-contain"
+            />
+
           </div>
         </div>
 

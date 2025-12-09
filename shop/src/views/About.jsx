@@ -19,6 +19,8 @@ const About = () => {
         </ul>
         <h3 className="font-semibold mt-4">Git Repository</h3>
         <a className="text-blue-600 underline" href="https://github.com/RayPalima/COMP-4513-Assignment-2" target="_blank">Link to Github Repo</a>
+        <h3 className="font-semibold mt-4">Image Placeholder Got from:</h3>
+        <a className="text-blue-600 underline" href="https://placehold.co/" target="_blank">placehold</a>
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ const CategoryList = ({ categories, gender }) => {
           className="cursor-pointer border rounded p-6 text-center hover:bg-gray-100"
         >
           <img
-            src={`https://via.placeholder.com/300x300?text=${gender}+${category}`}
+            src={`https://placehold.co/600x400/png`}
             alt={category}
             className="w-full h-48 object-cover mb-2"
           />
