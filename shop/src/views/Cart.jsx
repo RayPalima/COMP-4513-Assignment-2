@@ -1,7 +1,7 @@
 import React from "react";
 import { useCart } from "../components/ContextCart";
 
-const Cart = () => {
+const Cart = ({props}) => {
   const { items, total, removeItem, clearCart } = useCart();
 
   if (items.length === 0) {
@@ -20,46 +20,31 @@ const Cart = () => {
         {items.map((item) => (
           <div
             key={item.id}
-            className="flex items-center gap-4 p-4 bg-white shadow rounded-lg"
-          >
-            {/* PRODUCT IMAGE */}
+            className="flex items-center gap-4 p-4 bg-white shadow rounded-lg">
             <div className="w-24 h-24 bg-gray-100 rounded flex items-center justify-center overflow-hidden">
               {item.image ? (
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="max-w-full max-h-full"
-                />
+                <img src={item.image} alt={item.title} className="max-w-full max-h-full"/>
               ) : (
                 <span className="text-gray-400 text-sm">No Image</span>
               )}
             </div>
 
-            {/* DETAILS */}
             <div className="flex-1">
               <h2 className="text-lg font-semibold">{item.title}</h2>
               <p className="text-gray-600">${item.price}</p>
             </div>
 
-            {/* REMOVE BUTTON */}
-            <button
-              onClick={() => removeItem(item.id)}
-              className="text-red-600 hover:text-red-800 font-semibold"
-            >
+            <button onClick={() => removeItem(item.id)} className="text-red-600 hover:text-red-800 font-semibold">
               Remove
             </button>
           </div>
         ))}
       </div>
 
-      {/* TOTAL + CLEAR */}
       <div className="p-4 bg-gray-50 rounded-lg shadow flex justify-between items-center">
         <p className="text-xl font-semibold">Total: ${total.toFixed(2)}</p>
 
-        <button
-          onClick={clearCart}
-          className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700"
-        >
+        <button onClick={clearCart} className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700">
           Clear Cart
         </button>
       </div>

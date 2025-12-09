@@ -6,7 +6,6 @@ const STORAGE_KEY = "comp4513_cart";
 export function CartProvider({ children }) {
   const [items, setItems] = useState([]);
 
-  // Load cart from localStorage
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {

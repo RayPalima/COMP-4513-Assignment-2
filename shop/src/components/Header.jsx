@@ -27,7 +27,6 @@ const Header = (props) => {
             </Popout>
             {user ? (
             <>
-
               {user.isAdmin && (
                 <Link to="/dashboard" className="font-bold rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                   Dashboard
