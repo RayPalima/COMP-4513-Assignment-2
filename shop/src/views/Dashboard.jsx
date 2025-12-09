@@ -1,15 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Loading from "../components/Loading";
 
-/**
- * Minimal Sales Dashboard placeholder.
- * Real analytics would aggregate sales; here we compute simple derived values from product list.
- */
 const Dashboard = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-  // The following utilizes immediate invocation.
     (async () => {
       try {
         const resp = await fetch('https://gist.githubusercontent.com/rconnolly/d37a491b50203d66d043c26f33dbd798/raw/37b5b68c527ddbe824eaed12073d266d5455432a/clothing-compact.json');

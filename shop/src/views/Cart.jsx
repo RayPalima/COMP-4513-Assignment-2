@@ -30,7 +30,7 @@ const Cart = ({props}) => {
             </div>
 
             <div className="flex-1">
-              <h2 className="text-lg font-semibold">{item.title}</h2>
+              <h2 className="text-lg font-semibold">{item.name}</h2>
               <p className="text-gray-600">${item.price}</p>
             </div>
 

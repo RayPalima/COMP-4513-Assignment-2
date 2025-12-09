@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "../components/Login";
 
 const Login = ({ onClose}) => {
-  const navigate = useNavigate();
   const { login } = useAuth();
 
   const [form, setForm] = useState({

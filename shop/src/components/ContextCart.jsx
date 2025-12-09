@@ -18,7 +18,6 @@ export function CartProvider({ children }) {
     }
   }, []);
 
-  // Save cart whenever it changes
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
   }, [items]);

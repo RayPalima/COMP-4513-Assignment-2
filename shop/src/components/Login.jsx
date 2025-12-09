@@ -2,10 +2,8 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
 
-const STORAGE_KEY = "comp4513_user";
+const STORAGE_KEY = "user_login";
 
-// Example mock user database (for pretended auth)
-// To implement real auth later, replace this.
 const mockUsers = [
   { username: "admin", password: "adminpass", isAdmin: true, displayName: "Admin" },
   { username: "guest", password: "guestpass", isAdmin: false, displayName: "Guest" }
